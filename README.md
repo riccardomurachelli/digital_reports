@@ -1,7 +1,7 @@
 # Digital Reports
 
 ## 🇮🇹 Versione Italiana  
-**[🇬🇧 English version available!](#english-version)**
+**[🇬🇧 English version available!](#-english-version)**
 
 ## 🔍 Overview
 
