@@ -56,7 +56,7 @@ Se vuoi distribuire il programma senza dover installare Python, puoi usare **PyI
 2. Apri un terminale nella cartella del progetto e lancia il comando:
 
    ```bash
-   pyinstaller --onefile --icon=icon.ico main.py
+   pyinstaller -F --icon=icon.ico --noconsole main.py
    ```
 
    - `--onefile`: Crea un unico file eseguibile.
