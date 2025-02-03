@@ -155,7 +155,7 @@ If you want to distribute the program without requiring Python installation, you
 2. Open a terminal in the project folder and run:
 
    ```bash
-   pyinstaller --onefile --icon=icon.ico main.py
+   pyinstaller -F --icon=icon.ico --noconsole main.py
    ```
 
    - `--onefile`: Creates a single executable file.
