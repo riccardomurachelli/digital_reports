@@ -121,7 +121,7 @@ def start_new_report():
 
         attivita_window = tk.Toplevel(root)
         attivita_window.title("Inserimento Attività")
-        attivita_window.geometry("1000x400")
+        attivita_window.geometry("1000x500")
         open_image(attivita_window)
 
         codici = {
@@ -185,7 +185,7 @@ def start_new_report():
             values = tree.item(selected_item, "values")
             edit_window = tk.Toplevel(attivita_window)
             edit_window.title("Modifica Attività")
-            edit_window.geometry("400x900")
+            edit_window.geometry("500x900")
             conn = sqlite3.connect("reports.db")
             cursor = conn.cursor()
             cursor.execute("SELECT agente1, agente2 FROM reports WHERE id = ?", (report_id,))
@@ -386,7 +386,7 @@ def start_new_report():
                 turno_window.destroy()
                 mezzo_window = tk.Toplevel(root)
                 mezzo_window.title("Seleziona Mezzo")
-                mezzo_window.geometry("400x300")
+                mezzo_window.geometry("400x400")
 
                 mezzi = []
 
@@ -411,14 +411,14 @@ def start_new_report():
                     mezzo_window.destroy()
                     _, _, report_id = save_report(agent1_var.get(), agent2_var.get(), turno_var.get(), mezzo_selezionato, "", annotazioni, report_date)
                     inserisci_attivita(report_id)
-                    tk.Button(mezzo_window, text="Prosegui", command=confirm_mezzo).pack(pady=20)
-                    tk.Button(mezzo_window, text="Indietro", command=lambda: [mezzo_window.destroy(), select_turno()]).pack(pady=10)
+                tk.Button(mezzo_window, text="Prosegui", command=confirm_mezzo).pack(pady=20)
+                tk.Button(mezzo_window, text="Indietro", command=lambda: [mezzo_window.destroy(), select_turno()]).pack(pady=10)
 
-                tk.Button(turno_window, text="Prosegui", command=select_mezzo).pack(pady=20)
-                tk.Button(turno_window, text="Indietro", command=lambda: [turno_window.destroy(), select_agents(report_date)]).pack(pady=10)
+            tk.Button(turno_window, text="Prosegui", command=select_mezzo).pack(pady=20)
+            tk.Button(turno_window, text="Indietro", command=lambda: [turno_window.destroy(), select_agents(report_date)]).pack(pady=10)
 
-            tk.Button(agent_window, text="Prosegui", command=select_turno).pack(pady=20)
-            tk.Button(agent_window, text="Indietro", command=lambda: [agent_window.destroy(), select_date()]).pack(pady=10)
+        tk.Button(agent_window, text="Prosegui", command=select_turno).pack(pady=20)
+        tk.Button(agent_window, text="Indietro", command=lambda: [agent_window.destroy(), select_date()]).pack(pady=10)
 
     tk.Button(new_report_window, text="Oggi", command=lambda: select_agents(datetime.now().strftime("%d/%m/%Y"))).pack(pady=10)
     tk.Button(new_report_window, text="Altro giorno", command=lambda: select_date()).pack(pady=10)
@@ -426,7 +426,7 @@ def start_new_report():
         attivita_window.destroy()
         identificati_window = tk.Toplevel(root)
         identificati_window.title("Inserimento Persone Identificate")
-        identificati_window.geometry("800x400")
+        identificati_window.geometry("850x550")
 
         columns = ("Orario", "Località", "Nominativo", "Residenza", "Documento", "Targa")
         tree = ttk.Treeview(identificati_window, columns=columns, show="headings", selectmode="browse", style="Custom.Treeview")
